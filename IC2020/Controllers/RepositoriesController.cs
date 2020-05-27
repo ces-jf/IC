@@ -18,7 +18,11 @@ namespace IC2020.Controllers
         [DisableRequestSizeLimit]
         public IActionResult MyRepositories()
         {
-            var url = "https://api.github.com/users/RogerioTostes/repos";
+            return View();
+        }
+        public IActionResult MyRepositoriesResult(string key)
+        {
+            var url = "https://api.github.com/users/" + key + "/repos";
             var result = _operations.GetStrFromJson(url);
             var myRepos = JsonConvert.DeserializeObject<List<Item>>(result);
 

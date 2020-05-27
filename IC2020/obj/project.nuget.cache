@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gB+rReLT7yLzLJ+CITa3rQveqJfeaAthXRu+JfxtZddJxZ8Se+D9LaBCaWvrTewPy4PgihLwu5nePTm3DXhAWA==",
+  "dgSpecHash": "W/fgwy9irHk/lcr/aUS4xm4sj5GBc3QTImETxrOZJfuc2mtlZx8yMwZ1tm9eLhAZ8IdgHzWFNUFpqzcsFA2EMQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rtostes\\source\\repos\\IC2020\\IC2020\\IC2020.csproj",
+  "projectFilePath": "C:\\Users\\rtostes\\Documents\\GitHub\\IC-2020\\IC2020\\IC2020.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rtostes\\.nuget\\packages\\litedb\\5.0.8\\litedb.5.0.8.nupkg.sha512",
     "C:\\Users\\rtostes\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",

@@ -12224,11 +12224,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rtostes\\source\\repos\\IC2020\\IC2020\\IC2020.csproj",
+      "projectUniqueName": "C:\\Users\\rtostes\\Documents\\GitHub\\IC-2020\\IC2020\\IC2020.csproj",
       "projectName": "IC2020",
-      "projectPath": "C:\\Users\\rtostes\\source\\repos\\IC2020\\IC2020\\IC2020.csproj",
+      "projectPath": "C:\\Users\\rtostes\\Documents\\GitHub\\IC-2020\\IC2020\\IC2020.csproj",
       "packagesPath": "C:\\Users\\rtostes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rtostes\\source\\repos\\IC2020\\IC2020\\obj\\",
+      "outputPath": "C:\\Users\\rtostes\\Documents\\GitHub\\IC-2020\\IC2020\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

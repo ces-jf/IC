@@ -1,22 +1,37 @@
-﻿@using  IC2020.Models
-@model IEnumerable<Item>
-@{ ViewData["Title"] = "Repositórios";
-                Layout = "~/Views/Shared/_Layout.cshtml"; }
+﻿@*@using  IC2020.Models
+    @model IEnumerable<Item>
+    @{ ViewData["Title"] = "Repositórios";
+                    Layout = "~/Views/Shared/_Layout.cshtml"; }
 
-<h1>@ViewData["Title"] de Rogerio</h1>
-<br />
-<table class="table table-sm table-hover table-borderless m-1">
-    <thead>
-        <tr>
-            <th>Nome</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var rep in Model)
+    <h1>@ViewData["Title"] de Rogerio</h1>
+    <br />
+    <table class="table table-sm table-hover table-borderless m-1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rep in Model)
+            {
+    <tr>
+        <td>@Html.ActionLink(rep.name, "RepInfo", rep)</td>
+    </tr>}
+        </tbody>
+
+    </table>*@
+
+@using  IC2020.Models
+        @model IEnumerable<Item>
+        @{ ViewData["Title"] = "Repositórios";
+                        Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+    <h1>Pesquisar Usuário</h1>
+    <br />
+    <div class="body-content panel-body">
+        @using (Html.BeginForm("MyRepositoriesResult", "Repositories", FormMethod.Post))
         {
-<tr>
-    <td>@Html.ActionLink(rep.name, "RepInfo", rep)</td>
-</tr>}
-    </tbody>
+    <input type="text" class="input-group-sm" name="key" placeholder="Busca por usuários" />
+                    <input type="submit" class="btn btn-sm  btn-outline-info" value="Procurar" />}
+    </div>
 
-</table>
