@@ -1,0 +1,13 @@
+﻿@using IC2020.Models
+@model Item
+@{ ViewData["Title"] = "Pesquisa";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Pesquisar repositórios</h1>
+<br />
+<div class="body-content panel-body">
+    @using (Html.BeginForm("SearchResult", "Repositories", FormMethod.Post))
+    {
+<input type="text" class="input-group-sm" name="key" placeholder="Busca por repositórios" />
+                <input type="submit" class="btn btn-sm  btn-outline-info" value="Procurar" />}
+</div>
