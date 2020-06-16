@@ -43,15 +43,24 @@ namespace IC2020.Controllers
             return View(repos);
         }
 
-
-        //public IActionResult Favorites(Item fav)
+        //[HttpPost]
+        //public IActionResult Add(Item entity)
         //{
-        //    if (fav.id != 0)
-        //    {
-        //        _operations.DBInsert(fav);
-        //    }
+        //    MongoDbContext dbContext = new MongoDbContext();
+                     
+
+        //    dbContext.Itens.InsertOne(entity);
+
         //    return View();
         //}
+
+        public IActionResult Favorites(Item fav)
+        {
+            MongoDbContext dbContext = new MongoDbContext();
+            dbContext.Itens.InsertOne(fav);
+
+            return View();
+        }
 
         //public IActionResult RemoveFromFavs(Item fav)
         //{

@@ -50,7 +50,6 @@ C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\bin\Debug\netcoreapp2.2\IC2020.
 C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\IC2020.csprojAssemblyReference.cache
 C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\IC2020.AssemblyInfoInputs.cache
 C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\IC2020.AssemblyInfo.cs
-C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\IC2020.csproj.CoreCompileInputs.cache
 C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\IC2020.RazorAssemblyInfo.cache
 C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\IC2020.RazorAssemblyInfo.cs
 C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\IC2020.TagHelpers.input.cache
@@ -77,3 +76,4 @@ C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\IC2020.
 C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\IC2020.genruntimeconfig.cache
 C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\IC2020.csproj.CopyComplete
 C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\Razor\Views\Repositories\MyRepositoriesResult.cshtml.g.cs
+C:\Users\rtostes\Documents\GitHub\IC-2020\IC2020\obj\Debug\netcoreapp2.2\IC2020.csproj.CoreCompileInputs.cache
