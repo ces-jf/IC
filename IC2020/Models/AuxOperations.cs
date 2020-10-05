@@ -22,32 +22,5 @@ namespace IC2020.Models
             return rawJson;
         }
 
-        //public void DBInsert(Item fav)
-        //{
-        //    if (fav.id != 0)
-        //    {
-        //        using (var db = new LiteDatabase(@"Data/favorites.db"))
-        //        {
-        //            var items = db.GetCollection<Item>("items");
-        //            var query = items.FindOne(x => x.id == fav.id);
-        //            if (query == null)
-        //            {
-        //                items.Insert(fav);
-        //            }
-        //        }
-        //    }
-        //}
-
-        //public void DBDelete(Item fav)
-        //{
-        //    if (fav.id != 0)
-        //    {
-        //        using (var db = new LiteDatabase(@"Data/favorites.db"))
-        //        {
-        //            var items = db.GetCollection<Item>("items");
-        //            items.Delete(x => x.id == fav.id);
-        //        }
-        //    }
-        //}
     }
 }

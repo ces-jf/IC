@@ -1,13 +1,38 @@
-﻿@using IC2020.Models
-@model Item
-@{ ViewData["Title"] = "Pesquisa";
-                Layout = "~/Views/Shared/_Layout.cshtml"; }
+﻿@model IEnumerable<IC2020.Models.Item>
 
-<h1>Pesquisar repositórios</h1>
-<br />
-<div class="body-content panel-body">
-    @using (Html.BeginForm("SearchResult", "Repositories", FormMethod.Post))
+@{
+    ViewBag.Title = "Search";
+}
+
+
+<link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<div class="card card-info">
+    <div class="card-header" style="background-color:#DE022A">
+        <h3 class="card-title">Pesquisa de Repositório</h3>
+    </div>
+    @using (Html.BeginForm("DashBoard", "Repositories", FormMethod.Post))
     {
-<input type="text" class="input-group-sm" name="key" placeholder="Busca por repositórios" />
-                <input type="submit" class="btn btn-sm  btn-outline-info" value="Procurar" />}
+        <form class="form-horizontal" method="post">
+            <div class="card-body">
+                <div class="form-group row">
+                    <label for="diaInicial" class="col-sm-2 col-form-label">Usuário</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="diaFinal" class="col-sm-2 col-form-label">Repositório</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="repositorio" name="repositorio" placeholder="Repositório">
+                    </div>
+                </div>             
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-danger" style="background-color:#DE022A" id="btnPesquisar">Pesquisar</button>
+
+                <button type="reset" class="btn btn-default float-right">Cancelar</button>
+            </div>
+        </form>
+    }
 </div>

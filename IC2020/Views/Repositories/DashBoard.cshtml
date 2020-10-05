@@ -1,0 +1,230 @@
+﻿@using  IC2020.Models
+@model ObjStructure
+
+@{
+    ViewBag.Title = "DashBoard";
+}
+@using Newtonsoft.Json;
+
+<link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<script src="@Url.Content("~/Scripts/jquery-1.10.2.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+
+<script type="text/javascript" src="~/chart/Chart.PieceLabel.js"></script>
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="info-box bg-danger">
+                    <span class="info-box-icon"><i class="far fa-flag"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">USUÁRIO/REPOSITÓRIO</span>
+                        <span class="info-box-text" id="nameRepo">
+                            @Model.repo.full_name
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="card card-danger card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="far fa-chart-bar"></i>
+                            DESENVOLVEDORES DE CADA VERSÃO
+                        </h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example1" class="table table-hover" height="100">
+                                @if (Model.item.Count() == 0)
+                                {
+                                    <tr>
+                                        <td colspan="10">Não foram encontrados dados.</td>
+                                    </tr>
+
+                                }
+                                else
+                                {
+                                    <thead>
+                                        <tr style="background-color:#DE022A; color:white">
+                                            <th scope="col">Desenvolvedor</th>
+                                            <th scope="col">Versão</th>
+                                            <th scope="col">Data</th>
+                                        </tr>
+                                    </thead>
+
+
+
+                                    foreach (var item in Model.item)
+                                    {
+                                        <tr>
+                                            <td>@item.author.login</td>
+                                            <td>@item.tag_name</td>
+                                            <td>@item.published_at</td>
+                                        </tr>
+                                    }
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card card-danger card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="far fa-chart-bar"></i>
+                            TOTAL DE COMMITS DE CADA VERSÃO
+                        </h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="wrapper">
+                            <canvas id="totalChart" height="303"></canvas>
+                            <script>
+                                var ctx = document.getElementById("totalChart");
+                                var chart = new Chart(ctx, {
+                                    type: 'pie',
+                                    data: {
+                                        datasets: [{ backgroundColor: ['rgb(255, 99, 132)', 'rgb(255, 199, 132)', 'rgb(55, 99, 132)', 'rgba(0, 255, 0, 0.3)', "#8e5ea2"], data: [72, 2, 2, 3, 1] }], labels: ["v14.12.0", "v14.11.0", "v14.10.1", "v12.18.4", "v10.22.1",]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        title: {
+                                            display: true,
+                                            responsive: true
+                                        },
+                                        pieceLabel: {
+                                            render: 'value',
+                                            position: 'outside',
+                                            segment: true,
+                                            fontSize: 14,
+                                            fontStyle: 'bold',
+                                            fontColor: '#000',
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-danger card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="far fa-chart-bar"></i>
+                            DATA x VERSÃO
+                        </h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="wrapper">
+                            <canvas id="mixed-chart" width="800" height="400"></canvas>
+
+                            <script>
+                                  var events = @Html.Raw(JsonConvert.SerializeObject(Model.item))
+                                     console.log(events)
+                                const tag = events.map(x => x.tag_name)
+                                const datetag = events.map(x => x.published_at)
+                                var y = tag.map(s => parseFloat(s.slice(1)));
+                                                                    new Chart(document.getElementById("mixed-chart"), {
+                                        type: 'line',
+                                        data: {
+                                            labels: datetag,
+                                            datasets: [{
+                                                data: y,
+                                                label: "Versão",
+                                                borderColor: "#8e5ea2",
+                                                fill: false
+                                            },
+                                            ]
+                                        },
+                                        options: {
+                                            responsive: true,
+                                            title: {
+                                                display: true,
+                                                text: 'INTERVALO DE TEMPO ENTRE AS VERSÕES',
+                                                responsive: true
+                                            }
+                                        }
+                                    });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card card-danger card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="far fa-chart-bar"></i>
+                            INFORMAÇÕES DO REPOSITÓRIO
+                        </h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example1" class="table table-hover" height="100">
+
+                                <thead>
+                                    <tr style="background-color:#DE022A; color:white">
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Branch Principal</th>
+                                        <th scope="col">Watchers/Starred</th>
+                                        <th scope="col">Issues Abertas</th>
+                                        <th scope="col">Forks</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td>@Model.repo.id</td>
+                                    <td>@Model.repo.full_name</td>
+                                    <td>@Model.repo.default_branch</td>
+                                    <td>@Model.repo.watchers_count</td>
+                                    <td>@Model.repo.open_issues_count</td>
+                                    <td>@Model.repo.forks</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

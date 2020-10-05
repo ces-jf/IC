@@ -1,11 +1,9 @@
-using IC2020.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace IC2020
 {
@@ -27,11 +25,6 @@ namespace IC2020
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            MongoDbContext.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
-            MongoDbContext.DatabaseName = Configuration.GetSection("MongoConnection:Database").Value;
-            MongoDbContext.User = Configuration.GetSection("MongoConnection:User").Value;
-            MongoDbContext.Passaword = Configuration.GetSection("MongoConnection:Password").Value;
-            MongoDbContext.IsSSL = Convert.ToBoolean(this.Configuration.GetSection("MongoConnection:IsSSL").Value);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

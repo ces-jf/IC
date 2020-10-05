@@ -7,17 +7,26 @@ namespace IC2020.Models
 {
     public class Item
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string full_name { get; set; }
-        public string description { get; set; }
-        public string contributors_url { get; set; }
-        public DateTime updated_at { get; set; }
-        public string language { get; set; }
+        public string url { get; set; }
+        public string tag_name { get; set; }
+        public DateTime published_at { get; set; }
+        public Author author { get; set; }
     }
 
-    public class Repos
+    public class Author
     {
-        public List<Item> items { get; set; }
+        public string login { get; set; }
+    }
+
+    public class RepoInfo
+    {
+        public string id { get; set; }
+        public string full_name { get; set; }
+        public string language { get; set; }
+        public string default_branch { get; set; }
+        public int watchers_count { get; set; }
+        public int open_issues_count { get; set; }
+        public int forks { get; set; }
     }
 }
+
