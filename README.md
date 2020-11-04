@@ -5,4 +5,11 @@ Projeto de IC
 
 Download and install the dotnet core 2.2 SDK
 
-Use Visual Studio to run the project
+Use Visual Code to run the project
+
+Open the Visual Code terminal
+
+## Enter the commands:
+  - cd IC2020
+  - dotnet run
+
